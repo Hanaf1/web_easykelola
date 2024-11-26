@@ -93,7 +93,7 @@
 
 
     .table-responsive {
-    overflow-x: auto;
+    overflow-x: scroll;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
   }
 
@@ -151,10 +151,16 @@
     }
 
     /* Sembunyikan kolom yang kurang penting (opsional) */
+    table th:nth-child(1), /* Sembunyikan kolom "Category" */
+    table td:nth-child(1),
+    table th:nth-child(2), /* Sembunyikan kolom "Category" */
+    table td:nth-child(2),
     table th:nth-child(4), /* Sembunyikan kolom "Category" */
     table td:nth-child(4),
     table th:nth-child(7), /* Sembunyikan kolom "Status" */
-    table td:nth-child(7) {
+    table td:nth-child(7) ,
+    table th:nth-child(8), /* Sembunyikan kolom "Status" */
+    table td:nth-child(8) {
       display: none;
     }
 
@@ -207,22 +213,24 @@
         <h2 class="fw-bold">Inventory</h2>
   
         <!-- Search and Filter Bar -->
-        <div class="d-flex align-items-center mb-3">
-          <select class="form-select me-2" style="width: 150px;">
-            <option>All categories</option>
-            <option>Category 1</option>
-            <option>Category 2</option>
-          </select>
-          <div class="input-group me-2" style="width: 300px;">
-            <span class="input-group-text"><i class="bi bi-search"></i></span>
-            <input type="text" class="form-control" placeholder="Search products...">
+      <!-- Search and Filter Bar -->
+          <div class="d-flex flex-column flex-sm-row mb-3">
+            <select class="form-select mb-2 mb-sm-0 me-sm-2" style="width: 150px;">
+              <option>All categories</option>
+              <option>Category 1</option>
+              <option>Category 2</option>
+            </select>
+            <div class="input-group mb-2 mb-sm-0 me-sm-2" style="width: 300px;">
+              <span class="input-group-text"><i class="bi bi-search"></i></span>
+              <input type="text" class="form-control" placeholder="Search products...">
+            </div>
+            <button class="btn btn-danger mb-2 mb-sm-0 me-sm-2">Search</button>
+            <button class="btn btn-warning">+ Add New Product</button>
           </div>
-          <button class="btn btn-danger me-2">Search</button>
-          <button class="btn btn-warning">+ Add New Product</button>
-        </div>
+
   
         <!-- Inventory Table -->
-        <div class="table-responsive">
+        <div class="table-responsive overflow-scroll">
           <table class="table table-bordered align-middle">
             <thead class="table-light">
               <tr>
@@ -362,7 +370,7 @@
   
         <!-- Pagination -->
         <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-end">
+          <ul class="pagination justify-content-start">
             <li class="page-item"><a class="page-link" href="#">1</a></li>
             <li class="page-item"><a class="page-link" href="#">2</a></li>
             <li class="page-item"><a class="page-link" href="#">3</a></li>

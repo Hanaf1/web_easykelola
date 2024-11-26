@@ -16,13 +16,15 @@
   <style>
     /* Sidebar styling */
     #sidebar {
-  font-family: 'Lexend', sans-serif;
-  font-weight: 100; /* Semi-bold weight */
-  min-width: 80px;
-  max-width: 80px;
-  background-color: #655124;
-  color: #fff;
-  transition: all 0.3s;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 100; /* Semi-bold weight */
+    min-width: 80px;
+    max-width: 80px;
+    background-color: #655124;
+    color: #fff;
+    transition: all 0.3s;
+    height: auto;
+    min-height: 100vh;
 }
 
     #sidebar .nav-link {
@@ -88,6 +90,47 @@
       gap: 10px;
     }
 
+
+
+    .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+  }
+
+  /* Kolom tabel tidak terpotong */
+  table th, table td {
+    white-space: nowrap; /* Hindari teks terurai ke baris baru */
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  /* Gambar tetap rapi */
+  table img {
+    max-width: 50px;
+    max-height: 50px;
+    display: block;
+    margin: auto;
+  }
+
+    @media (max-width: 767px) {
+      .table-responsive {
+        overflow-x: scroll;
+      }
+
+      table th, table td {
+      font-size: 12px;
+      padding: 5px;
+    }
+
+    /* Sembunyikan kolom yang kurang penting (opsional) */
+    table th:nth-child(4), /* Sembunyikan kolom "Category" */
+    table td:nth-child(4),
+    table th:nth-child(7), /* Sembunyikan kolom "Status" */
+    table td:nth-child(7) {
+      display: none;
+    }
+    }
+
     /* Hide text on smaller screens */
     @media (max-width: 991px) {
       .sidebar-header span {
@@ -99,6 +142,25 @@
       font-size: 24px;
       color: #000;
     }
+
+    @media (max-width: 576px) {
+    /* Ubah ukuran font pada tabel untuk layar kecil */
+    table th, table td {
+      font-size: 12px;
+      padding: 5px;
+    }
+
+    /* Sembunyikan kolom yang kurang penting (opsional) */
+    table th:nth-child(4), /* Sembunyikan kolom "Category" */
+    table td:nth-child(4),
+    table th:nth-child(7), /* Sembunyikan kolom "Status" */
+    table td:nth-child(7) {
+      display: none;
+    }
+
+  }
+
+
   </style>
 </head>
 <body>
@@ -114,7 +176,7 @@
 
   <div class="d-flex">
     <!-- Sidebar (Collapsible) -->
-    <div class="collapse d-lg-block border-end vh-100 p-3 show" id="sidebar">
+    <div class="collapse d-lg-block border-end p-3 show" id="sidebar">
       <div class="sidebar-header d-flex align-items-center justify-content-center mb-5">
         <img src="assets/logo.png" alt="Logo" width="58px">
         <span><h3>EasyKelola</h3></span>

@@ -15,18 +15,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap" rel="stylesheet">
   <style>
 
-   
-    /* Sidebar styling */
     #sidebar {
-  font-family: 'Lexend', sans-serif;
-  font-weight: 100; /* Semi-bold weight */
-  min-width: 80px;
-  max-width: 80px;
-  background-color: #655124;
-  color: #fff;
-  transition: all 0.3s;
-}
-
+        font-family: 'Lexend', sans-serif;
+        font-weight: 100; /* Semi-bold weight */
+        min-width: 80px;
+        max-width: 80px;
+        background-color: #655124;
+        color: #fff;
+        transition: all 0.3s;
+        height: auto;
+        min-height: 100vh;
+    }
     #sidebar .nav-link {
       font-family: 'Lexend', sans-serif;
       color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
@@ -117,7 +116,7 @@
 
   <div class="d-flex">
     <!-- Sidebar (Collapsible) -->
-    <div class="collapse d-lg-block border-end vh-100 p-3 show" id="sidebar">
+    <div class="collapse d-lg-block border-end p-3 show" id="sidebar">
       <div class="sidebar-header d-flex align-items-center justify-content-center mb-5">
         <img src="../assets/logo.png" alt="Logo" width="58px">
         <span><h3>EasyKelola</h3></span>
@@ -151,7 +150,7 @@
             <h5 class="mb-0">staff</h5>
             <p class="text-muted mb-0">staff@gmail.com</p>
           </div>
-          <button class="btn btn-outline-secondary ms-auto"><i class="bi bi-pencil"></i></button>
+          <a href="usermanagent.html"> <button class="btn btn-outline-secondary ms-auto"><i class="bi bi-pencil"></i></button></a>
         </div>
       </div>
 
@@ -168,7 +167,7 @@
       </div>
 
       <!-- Logout Button -->
-      <a href="login.html" class="btn btn-danger btn-lg mt-4 w-100">Log Out</a>
+      <a href="../login.html" class="btn btn-danger btn-lg mt-4 w-100">Log Out</a>
     </div>
   </div>
   </div>

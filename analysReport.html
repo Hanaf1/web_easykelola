@@ -16,13 +16,15 @@
   <style>
     /* Sidebar styling */
     #sidebar {
-  font-family: 'Lexend', sans-serif;
-  font-weight: 100; /* Semi-bold weight */
-  min-width: 80px;
-  max-width: 80px;
-  background-color: #655124;
-  color: #fff;
-  transition: all 0.3s;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 100; /* Semi-bold weight */
+    min-width: 80px;
+    max-width: 80px;
+    background-color: #655124;
+    color: #fff;
+    transition: all 0.3s;
+    height: auto;
+    min-height: 100vh;
 }
 
     #sidebar .nav-link {
@@ -88,17 +90,37 @@
       gap: 10px;
     }
 
+    .notification i {
+      font-size: 24px;
+      color: #000;
+    }
     /* Hide text on smaller screens */
     @media (max-width: 991px) {
       .sidebar-header span {
         display: none;
       }
+
+@media (max-width: 768px) {
+  #chart {
+    display: block;
+    margin: 20px auto 0;
+    width: 100%; 
+    height: auto; 
+  }
+}
+
+/* Responsif untuk ponsel */
+@media (max-width: 576px) {
+  #chart {
+    width: 80%; 
+    margin: 0 auto; 
+    height: 150px; 
+  }
+}
+
+    
     }
 
-    .notification i {
-      font-size: 24px;
-      color: #000;
-    }
   </style>
 </head>
 <body>
@@ -114,7 +136,7 @@
 
   <div class="d-flex">
     <!-- Sidebar (Collapsible) -->
-    <div class="collapse d-lg-block border-end vh-100 p-3 show" id="sidebar">
+    <div class="collapse d-lg-block border-end p-3 show" id="sidebar">
       <div class="sidebar-header d-flex align-items-center justify-content-center mb-5">
         <img src="assets/logo.png" alt="Logo" width="58px">
         <span><h3>EasyKelola</h3></span>
@@ -141,13 +163,12 @@
     <!-- Main Content -->
     <div class="flex-grow-1 p-3">
 
-      <div class="container-fluid">
+      <div class="container">
 
         <h2 class="mb-5" style="font-weight: bold;">Analyse & Report</h2>
 
-        <div class="col-md-6 col-lg-8">
-
-          <div class="card analyze-card text-white rounded-4 p-4 mb-5" style="background-color: #CE6B6B;">
+          <!-- Button analyze stok -->
+          <button type="button" class="btn btn-lg mb-3 rounded p-4 card" data-bs-toggle="modal" data-bs-target="#analyse" style="background-color: #CE6B6B; color: white;">
             <div class="d-flex justify-content-start align-items-center">
               <div class="m-2 me-5">
                 <i class="bi bi-arrow-up-right fs-2"></i>
@@ -156,51 +177,101 @@
                 <h5 class="fw-semibold align-items-center">Analyze stock trends</h5>
               </div>
             </div>
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="analyse" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Stock Trends Overview</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Analyze stock trends for optimal management</p>
+                  <div class="container">
+                    <div class="row mb-3">
+                      <div class="col">
+                        Category
+                      </div>
+                      <div class="col">
+                        <button class="btn btn-sm btn-warning"> View Report</button>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col">
+                        Urgency
+                      </div>
+                      <div class="col">
+                        <button class="btn btn-sm btn-warning">Hight</button>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col">
+                        Due Date
+                      </div>
+                      <div class="col">
+                        <button class="btn btn-sm btn-warning">Add Note</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="container">
+                      <b>Product Details</b>
+                      <p>Sales Perfomance Analysis</p>
+                      <p>Financial Data</p>
+                  </div>
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
           </div>
 
 
           <br>
 
           <h4>Sales Chart</h4>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex flex-column flex-sm-row justify-content-between">
             <p>Select Period</p>
-            <div class="period">
-                <button class="btn" style="color: #E5D5CA; background-color: #8B4513 ; border-color:#C78662;">Week</button>
-                <button class="btn" style="border-color: #C78662; color: #b38564;">Day</button>
+            <div class="col-5 period">
+              <button class="btn" style="color: #E5D5CA; background-color: #8B4513; border-color: #C78662;">Week</button>
+              <button class="btn" style="border-color: #C78662; color: #b38564;">Day</button>
             </div>         
           </div>
-
-
-        </div>
-
-
-        <div class="container">
-          <div class="row mt-5">
-            <div class="col">
-              <div class="d-flex justify-content-between p-3" style="border-radius:15px ;">
-                <div class="item1">
-                  <p>Sales Item Coffe <br><small>Units Sold: 10</small></p>
-                </div>
-                <div class="price">
-                  <p>Rp. 30.000<br><small>Profit: Rp.5000</small></p>
-                </div>
-              </div>
-              <div class="d-flex justify-content-between p-3" style="background-color: #F0F1FE;border-radius: 15px;">
-                <div class="item1">
-                  <p>Sales Item Coffe <br><small>Units Sold: 10</small></p>
-                </div>
-                <div class="price">
-                  <p>Rp. 30.000<br><small>Profit: Rp.5000</small></p>
-                </div>
-              </div>
-            </div>
           
-            <div class="col">
-              <img src="assets/Chart.png" alt="">
+
+
+          <div class="container">
+            <div class="row mt-5">
+              <div class="col-12 col-md-6 order-2 order-md-1">
+                <div class="d-flex justify-content-between p-3" style="border-radius:15px;">
+                  <div class="item1">
+                    <p>Sales Item Coffe <br><small>Units Sold: 10</small></p>
+                  </div>
+                  <div class="price">
+                    <p>Rp. 30.000<br><small>Profit: Rp.5000</small></p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between p-3" style="background-color: #F0F1FE; border-radius: 15px;">
+                  <div class="item1">
+                    <p>Sales Item Coffe <br><small>Units Sold: 10</small></p>
+                  </div>
+                  <div class="price">
+                    <p>Rp. 30.000<br><small>Profit: Rp.5000</small></p>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="col-12 col-md-6 mt-3 mb-3 order-1 order-md-2">
+                <img id="chart" class="img-fluid" src="assets/Chart.png" alt="Chart">
+              </div>
             </div>
           </div>
-       
-        </div>
+          
 
 
 

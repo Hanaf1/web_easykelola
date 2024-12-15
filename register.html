@@ -10,19 +10,17 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-     
-
       .form-signin {
         max-width: 400px;
         margin: auto;
       }
 
       .input-group-text {
-        width: 40px; /* Fixed width for icon container */
+        width: 40px; 
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0; /* Remove default padding */
+        padding: 0; 
         box-sizing: border-box;
       }
 
@@ -32,27 +30,34 @@
         box-sizing: border-box;
       }
 
-
       .btn-sign {
         background-color: #AF874F;
         color: white;
       }
 
-      /* Custom size for the key icon */
       .icon-small {
         font-size: 1rem; /* Adjust the size as needed */
       }
       .icon-large {
-        width: 80px; /* Sesuaikan ukuran ikon sesuai kebutuhan */
-        
-}
+        width: 80px; /* Sesuaikan ukuran ikon sesuai kebutuhan */  
+      }
+        @media (max-width: 767px) {
+      body{
+        padding: 20px;
+     
+      }
+      
+    }
 
     </style>
 
-<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-<link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180"
+      href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+      href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
     <!-- Custom styles for this template -->
     <link href="sign-in.css" rel="stylesheet">
   </head>
@@ -65,11 +70,11 @@
 
           <img src="assets/ic_person.svg" alt="Person Icon" class="icon-large">
         </div>
-  
 
         <label class="form-label">name</label>
         <div class="input-group mb-2">
-          <span class="input-group-text" id="basic-addon2"><i class="bi bi-person"></i></span>
+          <span class="input-group-text" id="basic-addon2"><i
+              class="bi bi-person"></i></span>
           <input type="text" class="form-control" placeholder="name"
             aria-label="name" aria-describedby="basic-addon2" required>
         </div>
@@ -78,9 +83,8 @@
         <div class="input-group mb-2">
           <span class="input-group-text" id="basic-addon1">@</span>
           <input type="email" class="form-control" placeholder="email"
-            aria-label="email" aria-describedby="basic-addon1" required >
+            aria-label="email" aria-describedby="basic-addon1" required>
         </div>
-
 
         <label class="form-label">password</label>
         <div class="input-group mb-2">
@@ -90,14 +94,14 @@
             aria-label="password" aria-describedby="basic-addon2" required>
         </div>
 
-       
-        <a href="login.html" class="btn btn-sign btn-lg w-100 text-center">Register</a>
+        <a href="login.html"
+          class="btn btn-sign btn-lg w-100 text-center">Register</a>
 
         <div class="text-center mt-3">
           <p class="d-inline mb-0">already have account?</p>
-          <a href="login.html" class="d-inline h6 text-decoration-none">Login</a>
+          <a href="login.html"
+            class="d-inline h6 text-decoration-none">Login</a>
         </div>
-        
 
         <p class="mt-5 mb-3 text-body-secondary">&copy; 2024</p>
       </form>

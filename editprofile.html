@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recomedasi</title>
+    <title>Profile</title>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -23,8 +23,6 @@
       href="https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap"
       rel="stylesheet">
     <style>
-
-   
     /* Sidebar styling */
     #sidebar {
     font-family: 'Lexend', sans-serif;
@@ -71,9 +69,9 @@
       font-weight: bold;
     }
 
- 
     /* Expand sidebar on large screens */
     @media (min-width: 992px) {
+  
       #sidebar {
         min-width: 250px;
         max-width: 250px;
@@ -109,45 +107,57 @@
       }
     }
 
-    
 
     .bottom-nav {
-  position: fixed;
-  height: 70px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  /* background-color: #F3F6FA; Sesuai warna di gambar */
-  background-color: white;
-  padding: 10px 0;
-  border-top: 1px solid #C2D1D9; /* Warna garis border */
-  z-index: 1030;
+      position: fixed;
+      height: 70px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      /* background-color: #F3F6FA; Sesuai warna di gambar */
+      background-color: white;
+      padding: 10px 0;
+      border-top: 1px solid #C2D1D9; /* Warna garis border */
+      z-index: 1030;
 }
 
-.bottom-nav .nav-link {
-  color: #7A7D92; /* Warna abu-abu ikon default */
-  text-align: center;
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .bottom-nav .nav-link {
+      color: #7A7D92; /* Warna abu-abu ikon default */
+      text-align: center;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.bottom-nav .nav-link i {
-  font-size: 20px;
-  margin-bottom: 2px;
-}
+    .bottom-nav .nav-link i {
+      font-size: 20px;
+      margin-bottom: 2px;
+    }
 
-.bottom-nav .nav-link.active {
-  color: #AF7468; /* Warna cokelat ikon yang sedang aktif */
-  background-color: #E7EFF6; /* Warna latar aktif sesuai gambar */
-  border-radius: 10px; /* Melengkungkan latar aktif */
-  padding: 5px 10px; /* Padding agar terlihat proporsional */
-}
- 
+    .bottom-nav .nav-link.active {
+      color: #AF7468; /* Warna cokelat ikon yang sedang aktif */
+      background-color: #E7EFF6; /* Warna latar aktif sesuai gambar */
+      border-radius: 10px; /* Melengkungkan latar aktif */
+      padding: 5px 10px; /* Padding agar terlihat proporsional */
+    }
+
+
+        .profile-picture {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .btn-save {
+      background-color: #9B7E4E; /* Warna emas */
+      color: white;
+    }
 
 
      /*  responsive mobile */
@@ -163,14 +173,14 @@
       }
 
        .container {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
+        padding-left: 16px;
+        padding-right: 16px;
+      }
 
-  .card, .list-group-item, .btn {
-    margin-left: 8px;
-    margin-right: 8px;
-  }
+      .card, .list-group-item, .btn {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
       
     }
 
@@ -181,12 +191,15 @@
       }
     }
 
-    
+
+
+
+
   </style>
   </head>
   <body>
-    <!-- Navbar with Hamburger for Small Screens -->
-    <nav class="navbar d-lg-none">
+
+    <nav class="navbar  d-lg-none">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
           data-bs-target="#sidebar" aria-controls="sidebar"
@@ -208,8 +221,8 @@
         </div>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="index.html"><i
-                class="bi bi-house"></i> <span>Home</span></a>
+            <a class="nav-link" href="index.html"><i class="bi bi-house"></i>
+              <span>Home</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="deliv.html"><i class="bi bi-truck"></i>
@@ -224,72 +237,79 @@
                 class="bi bi-box-seam"></i> <span>Inventory</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="profile.html"><i class="bi bi-person"></i>
-              <span>Profile Settings</span></a>
+            <a class="nav-link" href="profile.html"><i
+                class="bi bi-person"></i> <span>Profile Settings</span></a>
           </li>
         </ul>
       </div>
 
       <!-- Main Content -->
       <div class="flex-grow-1 p-3 mb-5">
-
-        <div class="mb-5">
-          <a href="index.html"
-            style="text-decoration: none; color: #737373;"><h2>< Back</h2></a>
-        </div>
-
-        <h2 class="text-danger"
-          style="font-weight: bold;">Low Stok Alert</h2>
-
         <div
-          class="card p-4 mb-3 mt-4 shadow-sm col-12 col-md-8 col-lg-6">
-          <div
-            class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-sm-between">
-            <div class="item mb-3 mb-sm-0">
-              <h5 class="mb-0">Item: Obat Nyamuk</h5>
-              <p class="text-muted mb-0">Stock: 5 Units</p>
+          class="container d-flex justify-content-center align-items-center min-vh-100">
+
+          <div class="w-100">
+            <div>
+              <div class="col mb-2">
+                <a href="profile.html"
+                  style="text-decoration: none; color: #737373;"><h5><
+                    Back</h5></a>
+              </div>
+              <div class="col"> <h2 class="mb-4"
+                  style="font-weight: bold;">Edit Profile</h2>
+              </div>
             </div>
-            <a href="#" class="ms-sm-auto">
-              <button
-                class="btn"
-                style="color: white; background-color: #8B4513;">Order</button>
-            </a>
+            <!-- Profile Photo -->
+            <div class="text-lg-start text-center mb-4 img-profile">
+              <label for="fileInput" style="cursor: pointer;">
+                <img src="assets/photoProfile.png" alt="Profile Photo"
+                  id="profileImage" class="profile-picture">
+              </label>
+
+              <!-- Hidden file input -->
+              <input type="file" id="fileInput" accept="image/*"
+                onchange="loadFile(event)">
+            </div>
+
+            <!-- Input Fields -->
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name"
+                  placeholder="Name" value="admin">
+              </div>
+
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone"
+                  placeholder="Phone Number" value="0811122224445">
+              </div>
+
+              <div class="mb-4">
+                <label for="dob" class="form-label">Date of Birth</label>
+                <input type="text" class="form-control" id="dob"
+                  placeholder="Date of Birth" value="18/07/2004">
+              </div>
+
+              <div class="d-grid gap-3">
+                <button type="button" class="btn btn-save"
+                  onclick="location.href='profile.html'">
+                  Saved Change
+                </button>
+                <button type="button" class="btn btn-outline-secondary"
+                  onclick="location.href='profile.html'">
+                  Cancel
+                </button>
+              </div>
+
+            </form>
           </div>
         </div>
-        <div
-          class="card p-4 mb-3 shadow-sm col-12 col-md-8 col-lg-6">
-          <div
-            class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-sm-between">
-            <div class="item mb-3 mb-sm-0">
-              <h5 class="mb-0">Item: Obat Nyamuk</h5>
-              <p class="text-muted mb-0">Stock: 5 Units</p>
-            </div>
-            <a href="#" class="ms-sm-auto">
-              <button
-                class="btn"
-                style="color: white; background-color: #8B4513;">Order</button>
-            </a>
-          </div>
-        </div>
-        <div
-          class="card p-4 mb-3 shadow-sm col-12 col-md-8 col-lg-6">
-          <div
-            class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-sm-between">
-            <div class="item mb-3 mb-sm-0">
-              <h5 class="mb-0">Item: Obat Nyamuk</h5>
-              <p class="text-muted mb-0">Stock: 5 Units</p>
-            </div>
-            <a href="#" class="ms-sm-auto">
-              <button
-                class="btn"
-                style="color: white; background-color: #8B4513;">Order</button>
-            </a>
-          </div>
-        </div>
-
       </div>
+
     </div>
 
+    <!-- Bottom Navigation Bar -->
     <div class="bottom-nav d-lg-none">
       <a class="nav-link" href="index.html"><i
           class="bi bi-house"></i></a>
@@ -305,5 +325,14 @@
     <!-- Bootstrap JS (for collapse functionality) -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+  function loadFile(event) {
+    const output = document.getElementById('profileImage');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = () => URL.revokeObjectURL(output.src); // Hapus URL saat tidak dibutuhkan
+  }
+</script>
+
   </body>
 </html>

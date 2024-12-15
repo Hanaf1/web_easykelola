@@ -23,20 +23,26 @@
       href="https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap"
       rel="stylesheet">
     <style>
+      body {
+        margin-left: 80px; /* Sesuaikan dengan lebar sidebar untuk tampilan harmonis */
+        padding-bottom: 80px;
+      }
 
    
-    /* Sidebar styling */
     #sidebar {
-    font-family: 'Lexend', sans-serif;
-    font-weight: 100; /* Semi-bold weight */
-    min-width: 80px;
-    max-width: 80px;
-    background-color: #655124;
-    color: #fff;
-    transition: all 0.3s;
-    height: auto;
-    min-height: 100vh;
-}
+      font-family: 'Lexend', sans-serif;
+      font-weight: 100; /* Semi-bold weight */
+      min-width: 80px;
+      max-width: 80px;
+      background-color: #655124;
+      color: #fff;
+      transition: all 0.3s;
+      height: 100vh; /* Tinggi sesuai viewport */
+      overflow-y: auto; /* Untuk mengatasi scroll jika kontennya melebihi viewport */
+      position: fixed; /* Sidebar tetap di tempat walau di-scroll */
+      top: 0;
+      left: 0;
+    }
 
     #sidebar .nav-link {
       font-family: 'Lexend', sans-serif;
@@ -71,9 +77,48 @@
       font-weight: bold;
     }
 
+      /* Bottom Navigation */
+    .bottom-nav {
+      position: fixed;
+      height: 70px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: white;
+      padding: 10px 0;
+      border-top: 1px solid #C2D1D9; /* Warna garis border */
+      z-index: 1030;
+    }
+
+    .bottom-nav .nav-link {
+      color: #7A7D92; /* Warna abu-abu ikon default */
+      text-align: center;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bottom-nav .nav-link i {
+      font-size: 20px;
+      margin-bottom: 2px;
+    }
+
+    .bottom-nav .nav-link.active {
+      color: #AF7468; 
+      background-color: #E7EFF6; 
+      border-radius: 10px;
+      padding: 5px 10px; 
+    }
  
     /* Expand sidebar on large screens */
     @media (min-width: 992px) {
+      body{
+        margin-left: 250px;
+      }
       #sidebar {
         min-width: 250px;
         max-width: 250px;
@@ -94,7 +139,6 @@
       }
     }
 
-    /* Adjust sidebar header alignment */
     .sidebar-header {
       display: flex;
       align-items: center;
@@ -113,16 +157,35 @@
       font-size: 24px;
       color: #000;
     }
+        /* Tablet (medium devices) */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .bottom-nav{
+        display: none;
+      }
+     
+    }
+
+    /*  responsive mobile */
+    @media (max-width: 767px) {
+         body{
+        margin-left: 0px;
+      }
+      nav {
+        display: none !important;
+      }
+      .bottom-nav {
+        display: flex;
+      }
+      #sidebar {
+        display: none !important;
+      }
+      
+    }
   </style>
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ox6ee53by8");
-</script>
+
   </head>
   <body>
+
     <!-- Navbar with Hamburger for Small Screens -->
     <nav class="navbar d-lg-none">
       <div class="container-fluid">
@@ -169,7 +232,7 @@
       </div>
 
       <!-- Main Content -->
-      <div class="flex-grow-1 p-3">
+      <div class="flex-grow-1 p-3  mb-5">
 
         <div class="container mt-5">
 
@@ -226,6 +289,18 @@
         </div>
 
       </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-nav d-lg-none">
+      <a class="nav-link active" href="index.html"><i
+          class="bi bi-house"></i></a>
+      <a class="nav-link" href="deliv.html"><i class="bi bi-truck"></i></a>
+      <a class="nav-link" href="analysReport.html"><i
+          class="bi bi-bar-chart"></i></a>
+      <a class="nav-link" href="inventory.html"><i
+          class="bi bi-box-seam"></i></a>
+      <a class="nav-link" href="profile.html"><i class="bi bi-person"></i></a>
     </div>
 
     <!-- Bootstrap JS (for collapse functionality) -->

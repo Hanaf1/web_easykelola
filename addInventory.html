@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css"
+      rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180"
+      href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+      href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <!-- Lexend Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap"
+      rel="stylesheet">
+    <style>
+      body {
+        margin-left: 80px; /* Sesuaikan dengan lebar sidebar untuk tampilan harmonis */
+        padding-bottom: 80px;
+      }
+
+   
+    #sidebar {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 100; /* Semi-bold weight */
+      min-width: 80px;
+      max-width: 80px;
+      background-color: #655124;
+      color: #fff;
+      transition: all 0.3s;
+      height: 100vh; /* Tinggi sesuai viewport */
+      overflow-y: auto; /* Untuk mengatasi scroll jika kontennya melebihi viewport */
+      position: fixed; /* Sidebar tetap di tempat walau di-scroll */
+      top: 0;
+      left: 0;
+    }
+
+    #sidebar .nav-link {
+      font-family: 'Lexend', sans-serif;
+      color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+      font-weight: 100; /* Semi-bold weight */
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    #sidebar .nav-link i {
+      font-size: 24px;
+    }
+
+    /* Show icon only by default */
+    #sidebar .nav-link span {
+      display: none;
+    }
+
+    /* Hover style for links */
+    #sidebar .nav-link:hover {
+      color: white;
+      background-color: rgba(0, 123, 255, 0.05);
+    }
+
+    /* Active link style */
+    #sidebar .nav-link.active {
+      background-color: rgba(0, 123, 255, 0.1) !important;
+      color: #B58484 !important;
+      font-weight: bold;
+    }
+
+      /* Bottom Navigation */
+    .bottom-nav {
+      position: fixed;
+      height: 70px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: white;
+      padding: 10px 0;
+      border-top: 1px solid #C2D1D9; /* Warna garis border */
+      z-index: 1030;
+    }
+
+    .bottom-nav .nav-link {
+      color: #7A7D92; /* Warna abu-abu ikon default */
+      text-align: center;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bottom-nav .nav-link i {
+      font-size: 20px;
+      margin-bottom: 2px;
+    }
+
+    .bottom-nav .nav-link.active {
+      color: #AF7468; 
+      background-color: #E7EFF6; 
+      border-radius: 10px;
+      padding: 5px 10px; 
+    }
+ 
+    /* Expand sidebar on large screens */
+    @media (min-width: 992px) {
+      body{
+        margin-left: 250px;
+      }
+      #sidebar {
+        min-width: 250px;
+        max-width: 250px;
+      }
+
+      #sidebar .nav-link {
+        justify-content: flex-start;
+      }
+
+      #sidebar .nav-link span {
+        display: inline-block;
+        margin-left: 10px;
+      }
+
+      .sidebar-header span {
+        display: inline-block;
+        margin-left: 10px;
+      }
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* Hide text on smaller screens */
+    @media (max-width: 991px) {
+      .sidebar-header span {
+        display: none;
+      }
+    }
+
+    .notification i {
+      font-size: 24px;
+      color: #000;
+    }
+        /* Tablet (medium devices) */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .bottom-nav{
+        display: none;
+      }
+     
+    }
+
+    /*  responsive mobile */
+    @media (max-width: 767px) {
+         body{
+        margin-left: 0px;
+      }
+      nav {
+        display: none !important;
+      }
+      .bottom-nav {
+        display: flex;
+      }
+      #sidebar {
+        display: none !important;
+      }
+      
+    }
+
+   
+    .btn-brown {
+      background-color: #b48458;
+      color: white;
+    }
+    .btn-brown:hover {
+      background-color: #9c724a;
+    }
+  </style>
+
+  </head>
+  <body>
+
+    <!-- Navbar with Hamburger for Small Screens -->
+    <nav class="navbar d-lg-none">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#sidebar" aria-controls="sidebar"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand ms-2" href="#"
+          style="font-family: 'Lexend', sans-serif;">EasyKelola</a>
+      </div>
+    </nav>
+
+    <div class="d-flex">
+      <!-- Sidebar (Collapsible) -->
+      <div class="collapse d-lg-block border-end p-3 show" id="sidebar">
+        <div
+          class="sidebar-header d-flex align-items-center justify-content-center mb-5">
+          <img src="assets/logo.png" alt="Logo" width="58px">
+          <span><h3>EasyKelola</h3></span>
+        </div>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"><i
+                class="bi bi-house"></i> <span>Home</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="deliv.html"><i class="bi bi-truck"></i>
+              <span>Delivery Acceptance</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="analysReport.html"><i
+                class="bi bi-bar-chart"></i> <span>Analyse & Report</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="inventory.html"><i
+                class="bi bi-box-seam"></i> <span>Inventory</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html"><i class="bi bi-person"></i>
+              <span>Profile Settings</span></a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-grow-1 p-3  mb-5">
+        <div class="container inventory-container">
+          <div>
+            <div class="col mb-2">
+              <a href="inventory.html"
+                style="text-decoration: none; color: #737373;"><h5><
+                  Back</h5></a>
+            </div>
+            <div class="col"> <h2 class="mb-4"
+                style="font-weight: bold;">Add Inventory</h2>
+            </div>
+          </div>
+          <form>
+
+            <!-- Profile Photo -->
+            <div class="text-lg-start text-center mb-4 img-profile">
+              <label for="fileInput" style="cursor: pointer;">
+                <img src="https://placehold.co/100x100/png" alt="Profile Photo"
+                  id="profileImage" class="profile-picture">
+              </label>
+
+              <!-- Hidden file input -->
+              <input type="file" id="fileInput" accept="image/*"
+                onchange="loadFile(event)">
+            </div>
+
+            <!-- Input Fields -->
+            <div class="mb-3">
+              <label class="form-label">Item*</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="e.g., Sabun Batangan"
+                required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Price*</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Rp. 6500"
+                required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Stock*</label>
+              <input
+                type="number"
+                class="form-control"
+                placeholder="5"
+                required />
+            </div>
+
+            <!-- Dropdown -->
+            <div class="mb-3">
+              <label class="form-label">Type Item*</label>
+              <select class="form-select" required>
+                <option disabled selected>Select Type Item</option>
+                <option value="1">Kebutuhan Pokok</option>
+                <option value="2">Minuman</option>
+                <option value="3">Kebutuhan Dapur</option>
+                <option value="4">Perawatan Pribadi</option>
+              </select>
+            </div>
+
+            <!-- Submit Buttons -->
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-brown"
+                onclick="location.href='inventory.html'">Confirm</button>
+              <button type="button" class="btn btn-outline-secondary"
+                onclick="location.href='inventory.html'">Cancel</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-nav d-lg-none">
+      <a class="nav-link" href="index.html"><i
+          class="bi bi-house"></i></a>
+      <a class="nav-link" href="deliv.html"><i class="bi bi-truck"></i></a>
+      <a class="nav-link" href="analysReport.html"><i
+          class="bi bi-bar-chart"></i></a>
+      <a class="nav-link" href="inventory.html"><i
+          class="bi bi-box-seam"></i></a>
+      <a class="nav-link" href="profile.html"><i class="bi bi-person"></i></a>
+    </div>
+
+    <!-- Bootstrap JS (for collapse functionality) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+  function loadFile(event) {
+    const output = document.getElementById('profileImage');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = () => URL.revokeObjectURL(output.src); // Hapus URL saat tidak dibutuhkan
+  }
+</script>
+  </body>
+</html>

@@ -235,6 +235,7 @@
 
       <!-- Main Content -->
       <div class="flex-grow-1 p-3 mb-5">
+
         <div class="container">
           <div class="row">
             <div class="col mb-5">
@@ -264,12 +265,12 @@
                 <!-- Bagian Action Buttons -->
                 <div class="action d-flex">
                   <button
-                    class="btn  d-flex align-items-center justify-content-center me-2">
+                    class="btn  d-flex align-items-center justify-content-center me-2 btn-edit">
                     <i class="bi bi-pencil text-primary"></i><span
                       class="d-none d-md-inline text-primary ms-2">Edit</span>
                   </button>
                   <button
-                    class="btn  d-flex align-items-center justify-content-center">
+                    class="btn  d-flex align-items-center justify-content-center btn-delete">
                     <i class="bi bi-trash text-danger"></i><span
                       class="d-none d-md-inline text-danger ms-2">Delete</span>
                   </button>
@@ -285,7 +286,7 @@
                   <img src="assets/photouser.png" alt="Profile Image"
                     class="rounded-circle me-3" width="60">
                   <div>
-                    <h5 class="mb-0">Raul</h5>
+                    <h5 class="mb-0">Aziz</h5>
                     <p class="text-muted mb-0">Staff</p>
                   </div>
                 </div>
@@ -293,12 +294,12 @@
                 <!-- Bagian Action Buttons -->
                 <div class="action d-flex">
                   <button
-                    class="btn  d-flex align-items-center justify-content-center me-2">
+                    class="btn  d-flex align-items-center justify-content-center me-2 btn-edit">
                     <i class="bi bi-pencil text-primary"></i><span
                       class="d-none d-md-inline text-primary ms-2">Edit</span>
                   </button>
                   <button
-                    class="btn  d-flex align-items-center justify-content-center">
+                    class="btn  d-flex align-items-center justify-content-center btn-delete">
                     <i class="bi bi-trash text-danger"></i><span
                       class="d-none d-md-inline text-danger ms-2">Delete</span>
                   </button>
@@ -314,7 +315,7 @@
                   <img src="assets/photouser2.png" alt="Profile Image"
                     class="rounded-circle me-3" width="60">
                   <div>
-                    <h5 class="mb-0">Aziz</h5>
+                    <h5 class="mb-0">Raul</h5>
                     <p class="text-muted mb-0">staff</p>
                   </div>
                 </div>
@@ -322,12 +323,12 @@
                 <!-- Bagian Action Buttons -->
                 <div class="action d-flex">
                   <button
-                    class="btn  d-flex align-items-center justify-content-center me-2">
+                    class="btn  d-flex align-items-center justify-content-center me-2 btn-edit">
                     <i class="bi bi-pencil text-primary"></i><span
                       class="d-none d-md-inline text-primary ms-2">Edit</span>
                   </button>
                   <button
-                    class="btn  d-flex align-items-center justify-content-center">
+                    class="btn  d-flex align-items-center justify-content-center btn-delete">
                     <i class="bi bi-trash text-danger"></i><span
                       class="d-none d-md-inline text-danger ms-2">Delete</span>
                   </button>
@@ -382,6 +383,100 @@
       <a class="nav-link " href="profile.html"><i
           class="bi bi-person"></i></a>
     </div>
+    <!-- Modal untuk Konfirmasi Delete -->
+    <div class="modal fade" id="deleteModal" tabindex="-1"
+      aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Konfirmasi
+              Delete</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Apakah Anda yakin ingin menghapus user ini?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+              data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal untuk Edit User -->
+    <div class="modal fade" id="editModal" tabindex="-1"
+      aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Edit User</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="editUserForm">
+              <div class="mb-3">
+                <label for="editName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="editName"
+                  placeholder="Masukkan nama">
+              </div>
+              <div class="mb-3">
+                <label for="editEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="editEmail"
+                  placeholder="Masukkan email">
+              </div>
+              <div class="mb-3">
+                <label for="editRole" class="form-label">Role</label>
+                <select class="form-select" id="editRole">
+                  <option value="admin">Admin</option>
+                  <option value="staff">Staff</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+              data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary">Save
+              Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  // Event Listener Edit Button
+  const editButtons = document.querySelectorAll('.btn-edit');
+  editButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const parent = event.target.closest('.card');
+      const name = parent.querySelector('h5').textContent;
+      const email = "user@example.com"; // Mock email for demo
+      const role = parent.querySelector('p.text-muted').textContent;
+
+      // Populate modal inputs
+      document.getElementById('editName').value = name;
+      document.getElementById('editEmail').value = email;
+      document.getElementById('editRole').value = role;
+
+      // Show modal
+      const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+      editModal.show();
+    });
+  });
+
+  // Event Listener Delete Button
+  const deleteButtons = document.querySelectorAll('.btn-delete');
+  deleteButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+      deleteModal.show();
+    });
+  });
+</script>
 
     <!-- Bootstrap JS (for collapse functionality) -->
     <script
